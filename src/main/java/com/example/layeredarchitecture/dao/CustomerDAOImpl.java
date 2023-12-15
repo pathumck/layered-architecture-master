@@ -4,10 +4,7 @@ import com.example.layeredarchitecture.db.DBConnection;
 import com.example.layeredarchitecture.model.CustomerDTO;
 import com.example.layeredarchitecture.view.tdm.CustomerTM;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class CustomerDAOImpl {
@@ -21,5 +18,14 @@ public class CustomerDAOImpl {
             getAllCustomer.add(customerDTO);
         }
         return getAllCustomer;
+    }
+
+    public Boolean addCustomer(CustomerDTO dto) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getDbConnection().getConnection();
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Customer (id,name, address) VALUES (?,?,?)");
+        pstm.setString(1, dto.getId());
+        pstm.setString(2, dto.getName());
+        pstm.setString(3, dto.getAddress());
+        return pstm.executeUpdate()>0;
     }
 }
