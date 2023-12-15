@@ -184,8 +184,7 @@ public class ManageCustomersFormController {
 
     boolean existCustomer(String id) throws SQLException, ClassNotFoundException {
         CustomerDAOImpl customerDAO = new CustomerDAOImpl();
-        Boolean flag = customerDAO.existCustomer(id);
-        return flag;
+        return customerDAO.existCustomer(id);
     }
 
 
