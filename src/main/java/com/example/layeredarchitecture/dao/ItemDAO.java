@@ -12,10 +12,10 @@ public interface ItemDAO {
 
     void addItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
 
-    void updateItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
+    Boolean updateItem(ItemDTO dto) throws SQLException, ClassNotFoundException;
 
     Boolean existItem(String code) throws SQLException, ClassNotFoundException;
 
     String generateItemCode() throws SQLException, ClassNotFoundException;
-
+    ItemDTO findItem(String newItemCode) throws SQLException, ClassNotFoundException;
 }
