@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="654.0" style="-fx-background-color: white;" stylesheets="@assests/styles/manage-customers-form.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.layeredarchitecture.controller.SearchFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="654.0">
+         <fill>
+            <LinearGradient endX="0.04807692307692308" endY="0.7115384615384616">
+               <stops>
+                  <Stop color="#1598d6" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView id="imgHome" fitHeight="53.0" fitWidth="55.0" layoutX="22.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/images/home-icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="95.0" layoutY="24.0" text="Search">
+         <font>
+            <Font name="Ubuntu" size="27.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblSearch" layoutX="19.0" layoutY="89.0" prefHeight="511.0" prefWidth="615.0">
+         <columns>
+            <TableColumn fx:id="colOrderID" prefWidth="97.0" text="Order ID" />
+            <TableColumn fx:id="colCusID" prefWidth="122.85765838623047" text="Customer ID" />
+            <TableColumn fx:id="colCusName" prefWidth="150.71490478515625" text="Customer Name" />
+            <TableColumn fx:id="colCusAddress" prefWidth="131.42916870117188" text="Customer Address" />
+            <TableColumn fx:id="colDate" prefWidth="104.28619384765625" text="Date" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
