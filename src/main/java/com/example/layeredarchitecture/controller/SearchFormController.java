@@ -4,13 +4,22 @@ import com.example.layeredarchitecture.dao.custom.QueryDAO;
 import com.example.layeredarchitecture.dao.custom.impl.QueryDAOImpl;
 import com.example.layeredarchitecture.model.SearchDTO;
 import com.example.layeredarchitecture.view.tdm.SearchTM;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -53,7 +62,6 @@ public class SearchFormController {
         }
         ObservableList<SearchTM> toTable = FXCollections.observableArrayList(tmList);
         tblSearch.setItems(toTable);
-        System.out.println(tmList);
     }
 
     public void vitualize() {
@@ -63,5 +71,16 @@ public class SearchFormController {
         colOrderID.setCellValueFactory(new PropertyValueFactory<>("oId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 
+    }
+
+    @FXML
+    void navigateToHome(MouseEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/com/example/layeredarchitecture/main-form.fxml");
+        Parent root = FXMLLoader.load(resource);
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) (this.root.getScene().getWindow());
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        Platform.runLater(() -> primaryStage.sizeToScene());
     }
 }
